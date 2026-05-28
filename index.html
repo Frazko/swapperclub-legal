@@ -15,58 +15,186 @@
     }
     .container { max-width: 720px; margin: 0 auto; }
     h1 { font-size: 1.8rem; margin-bottom: 0.25rem; color: #2D0A3E; }
-    .subtitle { color: #666; margin-bottom: 2rem; font-size: 0.95rem; }
+    .subtitle { color: #666; margin-bottom: 1.5rem; font-size: 0.95rem; }
     h2 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; color: #2D0A3E; }
     p, li { margin-bottom: 0.75rem; font-size: 0.95rem; }
     ul { padding-left: 1.5rem; }
     a { color: #7C3AED; }
+    .lang-selector {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .lang-btn {
+      padding: 0.4rem 1rem;
+      border: 2px solid #2D0A3E;
+      border-radius: 20px;
+      background: transparent;
+      color: #2D0A3E;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active {
+      background: #2D0A3E;
+      color: #fff;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Privacy Policy</h1>
-    <p class="subtitle">SwapperClub &mdash; Last updated: May 28, 2026</p>
+    <h1>SwapperClub</h1>
+    <p class="subtitle">Privacy Policy &mdash; Last updated: May 28, 2026</p>
 
-    <h2>1. Introduction</h2>
-    <p>SwapperClub ("we", "us", "our") is a mobile application for trading collectible stickers. This Privacy Policy explains how we collect, use, and protect your information when you use our app.</p>
+    <div class="lang-selector">
+      <button class="lang-btn active" onclick="setLang('en')">English</button>
+      <button class="lang-btn" onclick="setLang('es')">Español</button>
+      <button class="lang-btn" onclick="setLang('pt')">Português</button>
+    </div>
 
-    <h2>2. Information We Collect</h2>
-    <p><strong>Account information:</strong> When you create an account, we collect your email address, display name (alias), country, city, and zip code.</p>
-    <p><strong>Profile photo:</strong> You may optionally take or choose a photo for your profile avatar. We access your device camera and photo library only when you explicitly choose to set a profile photo. Photos are stored securely in our cloud storage.</p>
-    <p><strong>Collection data:</strong> Sticker inventory data you enter (which stickers you have, need, or want to trade).</p>
-    <p><strong>Messages:</strong> Content of messages exchanged with other users through the in-app chat feature.</p>
-    <p><strong>Usage data:</strong> Anonymous analytics events such as screen views, feature usage, and session duration to help us improve the app experience.</p>
+    <!-- ENGLISH -->
+    <div class="lang-content active" id="lang-en">
+      <h2>1. Introduction</h2>
+      <p>SwapperClub ("we", "us", "our") is a mobile application for trading collectible stickers. This Privacy Policy explains how we collect, use, and protect your information when you use our app.</p>
 
-    <h2>3. How We Use Your Information</h2>
-    <ul>
-      <li>To create and manage your account</li>
-      <li>To match you with other traders based on your sticker collection and location</li>
-      <li>To enable communication between traders</li>
-      <li>To display rankings and reputation scores</li>
-      <li>To improve the app through anonymous usage analytics</li>
-    </ul>
+      <h2>2. Information We Collect</h2>
+      <p><strong>Account information:</strong> When you create an account, we collect your email address, display name (alias), country, city, and zip code.</p>
+      <p><strong>Profile photo:</strong> You may optionally take or choose a photo for your profile avatar. We access your device camera and photo library only when you explicitly choose to set a profile photo. Photos are stored securely in our cloud storage.</p>
+      <p><strong>Collection data:</strong> Sticker inventory data you enter (which stickers you have, need, or want to trade).</p>
+      <p><strong>Messages:</strong> Content of messages exchanged with other users through the in-app chat feature.</p>
+      <p><strong>Usage data:</strong> Anonymous analytics events such as screen views, feature usage, and session duration to help us improve the app experience.</p>
 
-    <h2>4. Camera &amp; Photo Library</h2>
-    <p>We request access to your device camera and photo library <strong>solely</strong> for the purpose of setting your profile avatar. We do not access your camera or photos for any other purpose. You can deny this permission and still use the app &mdash; you simply won't be able to set a custom profile photo.</p>
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To create and manage your account</li>
+        <li>To match you with other traders based on your sticker collection and location</li>
+        <li>To enable communication between traders</li>
+        <li>To display rankings and reputation scores</li>
+        <li>To improve the app through anonymous usage analytics</li>
+      </ul>
 
-    <h2>5. Data Sharing</h2>
-    <p>We do <strong>not</strong> sell your personal information to third parties. Your profile information (alias, country, city) is visible to other users for the purpose of facilitating trades. Your email address is never shared with other users.</p>
+      <h2>4. Camera &amp; Photo Library</h2>
+      <p>We request access to your device camera and photo library <strong>solely</strong> for the purpose of setting your profile avatar. We do not access your camera or photos for any other purpose. You can deny this permission and still use the app &mdash; you simply won't be able to set a custom profile photo.</p>
 
-    <h2>6. Data Storage &amp; Security</h2>
-    <p>Your data is stored securely using <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a> infrastructure with row-level security policies. We use industry-standard encryption for data in transit and at rest.</p>
+      <h2>5. Data Sharing</h2>
+      <p>We do <strong>not</strong> sell your personal information to third parties. Your profile information (alias, country, city) is visible to other users for the purpose of facilitating trades. Your email address is never shared with other users.</p>
 
-    <h2>7. Data Retention &amp; Deletion</h2>
-    <p>You may request deletion of your account and all associated data at any time by contacting us at the email below. Upon account deletion, your personal data will be permanently removed from our servers.</p>
+      <h2>6. Data Storage &amp; Security</h2>
+      <p>Your data is stored securely using <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a> infrastructure with row-level security policies. We use industry-standard encryption for data in transit and at rest.</p>
 
-    <h2>8. Children's Privacy</h2>
-    <p>SwapperClub is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal data, please contact us so we can remove it.</p>
+      <h2>7. Data Retention &amp; Deletion</h2>
+      <p>You may request deletion of your account and all associated data at any time by contacting us at the email below. Upon account deletion, your personal data will be permanently removed from our servers.</p>
 
-    <h2>9. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes through the app or by updating the "Last updated" date above.</p>
+      <h2>8. Children's Privacy</h2>
+      <p>SwapperClub is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal data, please contact us so we can remove it.</p>
 
-    <h2>10. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy or wish to exercise your data rights, contact us at:</p>
-    <p><strong>Email:</strong> swapperclub@gmail.com</p>
+      <h2>9. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes through the app or by updating the "Last updated" date above.</p>
+
+      <h2>10. Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or wish to exercise your data rights, contact us at:</p>
+      <p><strong>Email:</strong> swapperclub@gmail.com</p>
+    </div>
+
+    <!-- ESPAÑOL -->
+    <div class="lang-content" id="lang-es">
+      <h2>1. Introducción</h2>
+      <p>SwapperClub ("nosotros", "nuestro") es una aplicación móvil para intercambiar stickers coleccionables. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información cuando usás nuestra app.</p>
+
+      <h2>2. Información que recopilamos</h2>
+      <p><strong>Información de cuenta:</strong> Al crear una cuenta, recopilamos tu dirección de correo electrónico, nombre de usuario (alias), país, ciudad y código postal.</p>
+      <p><strong>Foto de perfil:</strong> Podés opcionalmente tomar o elegir una foto para tu avatar. Accedemos a tu cámara y galería solo cuando elegís configurar una foto de perfil. Las fotos se almacenan de forma segura en nuestra nube.</p>
+      <p><strong>Datos de colección:</strong> Los stickers que ingresás (cuáles tenés, necesitás o querés intercambiar).</p>
+      <p><strong>Mensajes:</strong> Contenido de los mensajes intercambiados con otros usuarios a través del chat de la app.</p>
+      <p><strong>Datos de uso:</strong> Eventos de analítica anónimos como vistas de pantalla, uso de funciones y duración de sesión para mejorar la experiencia.</p>
+
+      <h2>3. Cómo usamos tu información</h2>
+      <ul>
+        <li>Para crear y gestionar tu cuenta</li>
+        <li>Para conectarte con otros coleccionistas según tu colección y ubicación</li>
+        <li>Para habilitar la comunicación entre usuarios</li>
+        <li>Para mostrar rankings y puntuaciones de reputación</li>
+        <li>Para mejorar la app mediante analítica anónima</li>
+      </ul>
+
+      <h2>4. Cámara y galería de fotos</h2>
+      <p>Solicitamos acceso a tu cámara y galería <strong>únicamente</strong> para configurar tu foto de perfil. No accedemos a tu cámara ni fotos para ningún otro propósito. Podés denegar este permiso y seguir usando la app &mdash; simplemente no podrás configurar una foto de perfil personalizada.</p>
+
+      <h2>5. Compartir datos</h2>
+      <p><strong>No</strong> vendemos tu información personal a terceros. Tu información de perfil (alias, país, ciudad) es visible para otros usuarios para facilitar los intercambios. Tu correo electrónico nunca se comparte con otros usuarios.</p>
+
+      <h2>6. Almacenamiento y seguridad</h2>
+      <p>Tus datos se almacenan de forma segura usando infraestructura de <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a> con políticas de seguridad a nivel de fila. Usamos cifrado estándar de la industria para datos en tránsito y en reposo.</p>
+
+      <h2>7. Retención y eliminación de datos</h2>
+      <p>Podés solicitar la eliminación de tu cuenta y todos los datos asociados en cualquier momento contactándonos al correo de abajo. Al eliminar tu cuenta, tus datos personales serán removidos permanentemente de nuestros servidores.</p>
+
+      <h2>8. Privacidad de menores</h2>
+      <p>SwapperClub no está dirigida a menores de 13 años. No recopilamos conscientemente información personal de menores de 13 años. Si creés que un menor de 13 años nos proporcionó datos personales, contactanos para eliminarlos.</p>
+
+      <h2>9. Cambios a esta política</h2>
+      <p>Podemos actualizar esta Política de Privacidad ocasionalmente. Te notificaremos de cambios significativos a través de la app o actualizando la fecha "Última actualización" arriba.</p>
+
+      <h2>10. Contacto</h2>
+      <p>Si tenés preguntas sobre esta Política de Privacidad o querés ejercer tus derechos sobre tus datos, contactanos en:</p>
+      <p><strong>Email:</strong> swapperclub@gmail.com</p>
+    </div>
+
+    <!-- PORTUGUÊS -->
+    <div class="lang-content" id="lang-pt">
+      <h2>1. Introdução</h2>
+      <p>SwapperClub ("nós", "nosso") é um aplicativo móvel para trocar figurinhas colecionáveis. Esta Política de Privacidade explica como coletamos, usamos e protegemos suas informações quando você usa nosso app.</p>
+
+      <h2>2. Informações que coletamos</h2>
+      <p><strong>Informações de conta:</strong> Ao criar uma conta, coletamos seu endereço de e-mail, nome de usuário (alias), país, cidade e CEP.</p>
+      <p><strong>Foto de perfil:</strong> Você pode opcionalmente tirar ou escolher uma foto para seu avatar. Acessamos sua câmera e galeria apenas quando você escolhe configurar uma foto de perfil. As fotos são armazenadas com segurança em nossa nuvem.</p>
+      <p><strong>Dados da coleção:</strong> Dados de inventário de figurinhas que você insere (quais você tem, precisa ou quer trocar).</p>
+      <p><strong>Mensagens:</strong> Conteúdo das mensagens trocadas com outros usuários pelo chat do app.</p>
+      <p><strong>Dados de uso:</strong> Eventos de análise anônimos como visualizações de tela, uso de recursos e duração da sessão para melhorar a experiência.</p>
+
+      <h2>3. Como usamos suas informações</h2>
+      <ul>
+        <li>Para criar e gerenciar sua conta</li>
+        <li>Para conectá-lo com outros colecionadores com base em sua coleção e localização</li>
+        <li>Para permitir a comunicação entre usuários</li>
+        <li>Para exibir rankings e pontuações de reputação</li>
+        <li>Para melhorar o app por meio de análises anônimas</li>
+      </ul>
+
+      <h2>4. Câmera e biblioteca de fotos</h2>
+      <p>Solicitamos acesso à sua câmera e biblioteca de fotos <strong>exclusivamente</strong> para configurar seu avatar de perfil. Não acessamos sua câmera ou fotos para nenhum outro fim. Você pode negar essa permissão e continuar usando o app &mdash; simplesmente não poderá configurar uma foto de perfil personalizada.</p>
+
+      <h2>5. Compartilhamento de dados</h2>
+      <p><strong>Não</strong> vendemos suas informações pessoais a terceiros. Suas informações de perfil (alias, país, cidade) são visíveis para outros usuários para facilitar as trocas. Seu e-mail nunca é compartilhado com outros usuários.</p>
+
+      <h2>6. Armazenamento e segurança</h2>
+      <p>Seus dados são armazenados com segurança usando a infraestrutura da <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a> com políticas de segurança em nível de linha. Usamos criptografia padrão do setor para dados em trânsito e em repouso.</p>
+
+      <h2>7. Retenção e exclusão de dados</h2>
+      <p>Você pode solicitar a exclusão de sua conta e todos os dados associados a qualquer momento entrando em contato pelo e-mail abaixo. Após a exclusão da conta, seus dados pessoais serão removidos permanentemente de nossos servidores.</p>
+
+      <h2>8. Privacidade infantil</h2>
+      <p>O SwapperClub não é direcionado a crianças menores de 13 anos. Não coletamos conscientemente informações pessoais de crianças menores de 13 anos. Se você acredita que uma criança menor de 13 anos nos forneceu dados pessoais, entre em contato para que possamos removê-los.</p>
+
+      <h2>9. Alterações nesta política</h2>
+      <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos você sobre alterações significativas pelo app ou atualizando a data "Última atualização" acima.</p>
+
+      <h2>10. Contato</h2>
+      <p>Se você tiver dúvidas sobre esta Política de Privacidade ou quiser exercer seus direitos sobre seus dados, entre em contato:</p>
+      <p><strong>E-mail:</strong> swapperclub@gmail.com</p>
+    </div>
   </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('lang-' + lang).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
